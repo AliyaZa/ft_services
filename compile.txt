@@ -1,0 +1,16 @@
+minikube start —vm-driver=virtualbox
+minikube stop
+minikube delete
+minikube addons enable metallb
+minikube addons list
+minikube dashboard
+minikube service [svc-name]
+docker build -t image_nginx .
+eval $(minikube docker-env)
+kubectl apply -f configmap.yaml
+kubectl apply -f nginx.yaml
+kubectl get pods
+kubectl describe pods nginx
+kubectl delete pods nginx
+kubectl get deploy
+kubectl get svc

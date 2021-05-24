@@ -3,7 +3,14 @@ FROM alpine:3.12
 #installing
 RUN apk update
 RUN apk upgrade
-RUN apk add nginx openssl openssh supervisor vim
+RUN apk add nginx openssh supervisor vim
+RUN apk add openrc --no-cache
+RUN apk add --no-cache openssl
+
+# openrc
+RUN mkdir -p /run/openrc
+RUN touch /run/openrc/softlevel
+
 #nginx
 COPY 	srcs/nginx/nginx.conf etc/nginx/conf.d/default.conf
 #COPY	srcs/supervisor.conf etc/supervisord.conf
@@ -14,6 +21,6 @@ RUN openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/ssl/ssl.key
 #copying scripts into initial dir
 COPY srcs/*.sh ./
 EXPOSE 80 443
-#RUN chmod +x ./init.sh
+RUN chmod +x ./init.sh
 RUN mkdir -p /run/nginx
 CMD ["sh", "/init.sh"]
