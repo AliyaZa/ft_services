@@ -10,17 +10,40 @@ RUN apk add --no-cache openssl
 # openrc
 RUN mkdir -p /run/openrc
 RUN touch /run/openrc/softlevel
+# RUN pk add telegraf
 
-#nginx
-COPY 	srcs/nginx/nginx.conf etc/nginx/conf.d/default.conf
-#COPY	srcs/supervisor.conf etc/supervisord.conf
-
-#ssl. X.509 cert - open key certificate,  w/o pass, new certif request and 2049 bit rsa key
-RUN openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/ssl/ssl.key -out /etc/ssl/ssl -subj "/C=RU/ST=Tatarstan/L=Kazan/O=21 school/OU=ltanisha/CN=localhost"
-
-#copying scripts into initial dir
-COPY srcs/*.sh ./
-EXPOSE 80 443
-RUN chmod +x ./init.sh
+# Create folder for PID file
 RUN mkdir -p /run/nginx
-CMD ["sh", "/init.sh"]
+
+# Чтобы закинуть ключ для ssh
+RUN mkdir .ssh
+
+# добавили пользователя для проверки ssh
+RUN adduser -D admin -G root && echo "admin:admin" | chpasswd
+
+RUN mkdir -p /var/www/server
+
+# copy congig
+COPY ./srcs/default.conf /etc/nginx/conf.d
+
+#copy rsa_keygen
+COPY ./srcs/authorized_keys .ssh/id_rsa
+
+#Script for ssl
+
+RUN openssl req -x509 -nodes -days 365 -newkey rsa:2048 \
+	-keyout /etc/ssl/private/nginx-selfsigned.key \
+	-out /etc/ssl/certs/nginx-selfsigned.crt \
+	-subj "/C=RU/ST=Tatarstan/L=Kazan/O=21/OU=School/CN=localhost"
+
+WORKDIR /
+COPY ./srcs/check.sh /
+
+WORKDIR /
+COPY ./srcs/init.sh /
+
+RUN chown -R admin:root /etc/ssh
+
+EXPOSE 80 443 22
+CMD ["sh" ,"init.sh"]
+
