@@ -16,3 +16,11 @@ kubectl apply -f srcs/configmap.yaml
 #nginx
 docker build -t image_nginx ./srcs/nginx
 kubectl apply -f srcs/nginx/nginx.yaml
+
+#mysql
+docker build -t image_mysql ./srcs/mysql/
+kubectl apply -f srcs/mysql/mysql.yaml
+
+#wordpress
+docker build -t image_wordpress ./srcs/wordpress/
+kubectl apply -f srcs/wordpress/wordpress.yaml

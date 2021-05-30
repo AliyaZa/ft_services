@@ -10,7 +10,7 @@ RUN apk add --no-cache openssl
 # openrc
 RUN mkdir -p /run/openrc
 RUN touch /run/openrc/softlevel
-# RUN pk add telegraf
+# RUN apk add telegraf
 
 # Create folder for PID file
 RUN mkdir -p /run/nginx
@@ -23,27 +23,27 @@ RUN adduser -D admin -G root && echo "admin:admin" | chpasswd
 
 RUN mkdir -p /var/www/server
 
-# copy congig
-COPY ./srcs/default.conf /etc/nginx/conf.d
+# copy config
+COPY ./nginx.conf /etc/nginx/conf.d
 
 #copy rsa_keygen
-COPY ./srcs/authorized_keys .ssh/id_rsa
+COPY ./authorized_keys .ssh/id_rsa
 
 #Script for ssl
 
 RUN openssl req -x509 -nodes -days 365 -newkey rsa:2048 \
 	-keyout /etc/ssl/private/nginx-selfsigned.key \
 	-out /etc/ssl/certs/nginx-selfsigned.crt \
-	-subj "/C=RU/ST=Tatarstan/L=Kazan/O=21/OU=School/CN=localhost"
+	-subj "/C=RU/ST=Tatarstan/L=Kazan/O=21 School/OU=nhill/CN=localhost"
+
+#WORKDIR /
+#COPY ./srcs/check.sh /
 
 WORKDIR /
-COPY ./srcs/check.sh /
-
-WORKDIR /
-COPY ./srcs/init.sh /
+COPY ./init.sh /
 
 RUN chown -R admin:root /etc/ssh
 
-EXPOSE 80 443 22
+EXPOSE 80 443
 CMD ["sh" ,"init.sh"]
 
