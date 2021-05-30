@@ -22,7 +22,7 @@ spec:
     metadata:
       name: pod-wordpress
       labels:
-        app: wodpressPod
+        app: wordpressPod
         type: wordpresstype
     spec:
       containers:
@@ -42,5 +42,5 @@ spec:
   replicas: 1
   selector:
     matchLabels:
-      app: wodpressPod
+      app: wordpressPod
       type: wordpresstype
