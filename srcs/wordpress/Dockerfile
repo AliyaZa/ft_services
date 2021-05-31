@@ -36,8 +36,8 @@ COPY ./default.conf /etc/nginx/conf.d
 # copy check (for reastaart)
 #COPY ./srcs/check.sh /
 
-#cope init.sh
-COPY ./srcs/init.sh .
+#copy init.sh
+COPY ./init.sh .
 
 EXPOSE 5050
 ENTRYPOINT sh init.sh

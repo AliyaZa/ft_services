@@ -9,7 +9,7 @@ RUN apk upgrade
 RUN apk add openrc
 RUN apk add mysql mysql-client
 RUN apk add mariadb
-RUN pk add mariadb-client
+RUN apk add mariadb-client
 RUN apk add mariadb-common
 
 # RUN     apk add telegraf
@@ -28,7 +28,7 @@ VOLUME [ "/var/lib/mysql" ]
 
 ## copy bd wordpress
 WORKDIR /
-COPY ./srcs/wp_base.sql .
+COPY ./wp_base.sql .
 
 #Checks (for serv in pods)
 
