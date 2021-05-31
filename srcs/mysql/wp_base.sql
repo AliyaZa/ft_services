@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- База данных: `wp_base`
+-- База данных: `wordpress_base`
 --
 
 -- --------------------------------------------------------
@@ -480,7 +480,7 @@ CREATE TABLE `wp_users` (
 --
 
 INSERT INTO `wp_users` (`ID`, `user_login`, `user_pass`, `user_nicename`, `user_email`, `user_url`, `user_registered`, `user_activation_key`, `user_status`, `display_name`) VALUES
-(1, 'ifanzilka', '$P$BGF8DKSjJADrrT3bEN4uuYE3O2tM0k.', 'ifanzilka', 'test@mail.com', 'http://192.168.99.115:5050', '2021-05-06 19:20:44', '', 0, 'ifanzilka'),
+(1, 'nhill', '$P$BGF8DKSjJADrrT3bEN4uuYE3O2tM0k.', 'nhill', 'test@mail.com', 'http://192.168.99.115:5050', '2021-05-06 19:20:44', '', 0, 'nhill'),
 (2, 'guest1', '$P$BkdMqGGt0Q89xxPaWJCHSwQQB1X5MZ0', 'guest1', 'guest1@mail.com', '', '2021-05-06 19:23:05', '1620328985:$P$BG1w6ngwwv.CDEiIp3HfNzZoDb5yJd.', 0, 'guest1'),
 (3, 'guest2', '$P$B/pVJAL0MCyOz4zEY1qB7OTiz73JQH0', 'guest2', 'guest2@mail.com', '', '2021-05-06 19:23:47', '1620329027:$P$B6z4PnQ/gcXK8lbPVZG2Q/bDkYO7nF0', 0, 'guest2');
 
