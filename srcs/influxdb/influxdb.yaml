@@ -1,0 +1,49 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: svc-influxdb
+spec:
+  type: ClusterIP
+  clusterIP: 10.99.11.11
+  selector:
+    app: influxdbPod
+  ports:
+      - port: 8086
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: influxdb
+spec:
+  template:
+    metadata:
+      name: pod-influxdb
+      labels:
+        app: influxdbPod
+        type: influxdbtype
+    spec:
+      containers:
+        - name: container-influxdb
+          image: image_influxdb
+          imagePullPolicy: Never
+          ports:
+            - containerPort: 8086
+          volumeMounts:
+            - mountPath: "/var/run/docker.sock"
+              name: dockersock
+          # livenessProbe:
+          #   exec:
+          #     command:
+          #       - sh
+          #       - /check.sh
+          #   initialDelaySeconds: 30
+          #   periodSeconds: 10
+      volumes:
+        - name: dockersock
+          hostPath:
+            path: /var/run/docker.sock
+  replicas: 1
+  selector:
+    matchLabels:
+      app: influxdbPod
+      type: influxdbtype
