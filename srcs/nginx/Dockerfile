@@ -10,7 +10,7 @@ RUN apk add --no-cache openssl
 # openrc
 RUN mkdir -p /run/openrc
 RUN touch /run/openrc/softlevel
-# RUN apk add telegraf
+RUN apk add telegraf
 
 # Create folder for PID file
 RUN mkdir -p /run/nginx

@@ -1,2 +1,2 @@
 rc-service  influxdb start
-#telegraf
+telegraf

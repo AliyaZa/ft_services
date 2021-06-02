@@ -5,7 +5,7 @@ mysql_install_db --user=root --datadir="/var/lib/mysql"
 
 
 #/etc/init.d/telegraf start
-#rc-service telegraf start
+rc-service telegraf start
 
 rc-service mariadb setup
 rc-service mariadb start

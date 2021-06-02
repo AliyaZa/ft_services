@@ -6,7 +6,7 @@ FROM alpine:3.12
 #upadate
 RUN apk update
 RUN apk upgrade
-#RUN apk telegraf
+RUN apk telegraf
 RUN apk add nginx openrc && mkdir /run/nginx;
 RUN apk add php7-common php7-curl php7-xml php7-mysqli \
 php7-imap php7-cgi fcgi php7-iconv php7-json php7-gd \
