@@ -35,8 +35,8 @@ kubectl apply -f srcs/influxdb/influxdb.yaml
 
 
 #ftps
-#docker build -t image_ftps ./srcs/ftps/
-#kubectl apply -f srcs/ftps/ftps.yaml
+docker build -t image_ftps ./srcs/ftps/
+kubectl apply -f srcs/ftps/ftps.yaml
 
 #grafana
 #docker build -t grafana_image ./srcs/grafana/
