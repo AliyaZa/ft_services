@@ -4,7 +4,7 @@ FROM alpine:3.12
 #RUN echo "http://dl-2.alpinelinux.org/alpine/edge/community" >> /etc/apk/repositories
 
 RUN apk update
-RUN apk telegraf
+#RUN apk telegraf
 RUN apk add nginx openssl openrc && mkdir /run/nginx;
 RUN apk add wget php7-common php7-iconv php7-json php7-gd php7-curl \
 php7-xml php7-mysqli php7-imap php7-cgi fcgi php7-pdo php7-pdo_mysql \

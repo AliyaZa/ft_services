@@ -25,8 +25,8 @@ docker build -t image_wordpress ./srcs/wordpress/
 kubectl apply -f srcs/wordpress/wordpress.yaml
 
 #phpmyadmin
-#docker build -t image_phpmyadmin ./srcs/phpmyadmin/
-#kubectl apply -f srcs/phpmyadmin/phpmyadmin.yaml
+docker build -t image_phpmyadmin ./srcs/phpmyadmin/
+kubectl apply -f srcs/phpmyadmin/phpmyadmin.yaml
 
 
 #influx
