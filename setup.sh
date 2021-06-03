@@ -30,8 +30,8 @@ kubectl apply -f srcs/phpmyadmin/phpmyadmin.yaml
 
 
 #influx
-#docker build -t image_influxdb ./srcs/influxdb/
-#kubectl apply -f srcs/influxdb/influxdb.yaml
+docker build -t image_influxdb ./srcs/influxdb/
+kubectl apply -f srcs/influxdb/influxdb.yaml
 
 
 #ftps

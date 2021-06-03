@@ -1,7 +1,7 @@
 
 FROM alpine:3.12
 
-#RUN echo "http://dl-2.alpinelinux.org/alpine/edge/community" >> /etc/apk/repositories
+RUN echo "http://dl-2.alpinelinux.org/alpine/edge/community" >> /etc/apk/repositories
 RUN apk update
 RUN apk add openrc influxdb telegraf
 
