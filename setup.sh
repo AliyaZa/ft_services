@@ -17,12 +17,12 @@ docker build -t image_nginx ./srcs/nginx
 kubectl apply -f srcs/nginx/nginx.yaml
 
 #mysql
-#docker build -t image_mysql ./srcs/mysql/
-#kubectl apply -f srcs/mysql/mysql.yaml
+docker build -t image_mysql ./srcs/mysql/
+kubectl apply -f srcs/mysql/mysql.yaml
 
 #wordpress
-#docker build -t image_wordpress ./srcs/wordpress/
-#kubectl apply -f srcs/wordpress/wordpress.yaml
+docker build -t image_wordpress ./srcs/wordpress/
+kubectl apply -f srcs/wordpress/wordpress.yaml
 
 #phpmyadmin
 #docker build -t image_phpmyadmin ./srcs/phpmyadmin/
