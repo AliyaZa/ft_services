@@ -26,7 +26,7 @@ COPY ./default.conf /etc/nginx/conf.d
 COPY ./config.inc.php .
 
 # copy check (for reastaart)
-#COPY ./srcs/check.sh .
+COPY ./checker.sh .
 
 #cope init.sh
 COPY ./init.sh .

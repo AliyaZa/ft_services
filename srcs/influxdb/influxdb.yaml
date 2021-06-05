@@ -31,13 +31,13 @@ spec:
           volumeMounts:
             - mountPath: "/var/run/docker.sock"
               name: dockersock
-          # livenessProbe:
-          #   exec:
-          #     command:
-          #       - sh
-          #       - /check.sh
-          #   initialDelaySeconds: 30
-          #   periodSeconds: 10
+          livenessProbe:
+             exec:
+               command:
+                 - sh
+                 - /checker.sh
+             initialDelaySeconds: 30
+             periodSeconds: 10
       volumes:
         - name: dockersock
           hostPath:

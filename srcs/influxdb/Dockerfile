@@ -20,8 +20,8 @@ RUN telegraf -sample-config --input-filter docker --output-filter influxdb > /et
 # WORKDIR /
 #COPY ./srcs/telegraf.conf /etc/
 
-#WORKDIR /
-#COPY ./srcs/check.sh /
+WORKDIR /
+COPY ./checker.sh /
 
 EXPOSE 8086
 

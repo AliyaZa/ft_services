@@ -31,13 +31,13 @@ spec:
           volumeMounts: # папка внутри линукса
             - mountPath: "/var/lib/mysql"
               name: mysql
-          #livenessProbe:
-          #  exec:
-          #    command:
-          #      - sh
-          #      - /check.sh
-          #  initialDelaySeconds: 30
-          #  periodSeconds: 10
+          livenessProbe:
+            exec:
+              command:
+                - sh
+                - /checker.sh
+            initialDelaySeconds: 30
+            periodSeconds: 10
       volumes:  #внутри minikube папка
         - name: mysql
           hostPath:

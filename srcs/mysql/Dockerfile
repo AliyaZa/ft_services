@@ -32,8 +32,8 @@ COPY ./wp_base.sql .
 
 #Checks (for serv in pods)
 
-#WORKDIR /
-#COPY ./srcs/check.sh /
+WORKDIR /
+COPY ./checker.sh /
 
 ## copy sh
 WORKDIR /

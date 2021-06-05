@@ -45,4 +45,10 @@ spec:
         ports:
         - containerPort: 80
         - containerPort: 443
-#        - containerPort: 22
+        livenessProbe: ###  не напечатала еще !!!!!!
+            exec:
+              command:  # что запускаем каждые 10 сек
+                - sh
+                - /checker.sh
+            initialDelaySeconds: 30 #время перед первой пробой
+            periodSeconds: 10
