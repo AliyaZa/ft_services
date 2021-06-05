@@ -7,7 +7,7 @@ minikube addons enable dashboard
 minikube addons enable metallb
 minikube ssh 'sudo mkdir /mnt/mysql; sudo chmod 777 /mnt/mysql'
 minikube ssh 'sudo mkdir /mnt/influxdb; sudo chmod 777 /mnt/influxdb'
-inikube ssh 'sudo mkdir /mnt/ftps; sudo chmod 777 /mnt/ftps'
+minikube ssh 'sudo mkdir /mnt/ftps; sudo chmod 777 /mnt/ftps'
 
 eval $(minikube docker-env)
 kubectl apply -f srcs/configmap.yaml
