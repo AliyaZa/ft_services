@@ -39,7 +39,7 @@ docker build -t image_ftps ./srcs/ftps/
 kubectl apply -f srcs/ftps/ftps.yaml
 
 #grafana
-docker build -t grafana_image ./srcs/grafana/
+docker build -t image_grafana ./srcs/grafana/
 kubectl apply -f srcs/grafana/grafana.yaml
 
 minikube dashboard
