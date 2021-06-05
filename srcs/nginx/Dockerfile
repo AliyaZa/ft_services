@@ -39,7 +39,7 @@ RUN openssl req -x509 -nodes -days 365 -newkey rsa:2048 \
 	-subj "/C=RU/ST=Tatarstan/L=Kazan/O=21 School/OU=nhill/CN=localhost"
 
 WORKDIR /
-COPY ./check.sh /
+COPY ./checker.sh /
 
 WORKDIR /
 COPY ./init.sh /
