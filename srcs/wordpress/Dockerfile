@@ -27,10 +27,8 @@ COPY ./wp-config.php /var/www/localhost/htdocs/wordpress
 # copy config nginx
 COPY ./default.conf /etc/nginx/conf.d
 
-
-
 # copy check (for reastaart)
-#COPY ./srcs/check.sh /
+COPY ./checker.sh /
 
 #copy init.sh
 COPY ./init.sh .

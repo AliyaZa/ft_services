@@ -34,13 +34,13 @@ spec:
           ports:
             - name: phpmyadmin
               containerPort: 5000
-          #livenessProbe:
-            #exec:
-            #  command:
-            #    - sh
-            #    - /check.sh
-            #initialDelaySeconds: 30
-            #periodSeconds: 10
+          livenessProbe:
+            exec:
+              command:
+                - sh
+                - /check.sh
+            initialDelaySeconds: 30
+            periodSeconds: 10
   replicas: 1
   selector:
     matchLabels:

@@ -32,13 +32,13 @@ spec:
           ports:
             - name: wordpress
               containerPort: 5050
-          #livenessProbe:
-          #  exec:
-          #    command:
-          #      - sh
-          #      - /check.sh
-          #  initialDelaySeconds: 30
-          #  periodSeconds: 10
+          livenessProbe:
+            exec:
+              command:
+                - sh
+                - /checker.sh
+            initialDelaySeconds: 30
+            periodSeconds: 10
   replicas: 1
   selector:
     matchLabels:
