@@ -3,5 +3,3 @@ Project, setup of a Kubernetes cluster. Services include an nginx, an FTPS, a Wo
 ### Usage:
 >sh setup.sh
 
-If one of services don't start, use this:
->sh srcs/<service_directory>/restart.sh
